@@ -1,4 +1,4 @@
-package com.example.dkplugin;
+package org.devgirl.test;
  
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
