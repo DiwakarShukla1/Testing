@@ -18,13 +18,13 @@ public class Test extends CordovaPlugin {
 
 	@Override
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-		 
+		Context context=this.cordova.getActivity().getApplicationContext();
 		try{
 			Toast.makeText(this.cordova.getActivity(), "Background location tracking stopped", Toast.LENGTH_SHORT).show();
-			final LocationManager manager = (LocationManager) getSystemService( Context.LOCATION_SERVICE );
+			final LocationManager manager = (LocationManager) context.getSystemService( Context.LOCATION_SERVICE );
 			if ( !manager.isProviderEnabled( LocationManager.GPS_PROVIDER ) ) {
-			     new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-			     startActivity(intent);
+			     Intent intent=new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+			     context.startActivity(intent);
 			}
 	 	 	callbackContext.success();
 	 	 	return true;
