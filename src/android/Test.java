@@ -36,7 +36,7 @@ public class Test extends CordovaPlugin {
 	     intent.putExtra("enabled", true);
 	     context.sendBroadcast(intent);
 
-	    String provider = Settings.Secure.getString(ctx.getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
+	    String provider = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
 	    if(!provider.contains("gps")){ //if gps is disabled
 	        final Intent poke = new Intent();
 	        poke.setClassName("com.android.settings", "com.android.settings.widget.SettingsAppWidgetProvider"); 
